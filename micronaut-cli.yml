@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: br.com.product
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, aws-lambda, gradle, java, java-application, junit, logback, mongo-sync, readme, shade, testcontainers, yaml]
