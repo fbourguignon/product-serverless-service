@@ -38,7 +38,7 @@ public class ProductRepository {
     }
 
     public Product get(ObjectId id) {
-            log.info("Retrieving product from mongodb [{}]", id.toString());
+        log.info("Retrieving product from mongodb / id:[{}]", id.toString());
         Product product = getCollection().find(getBsonFilterById(id)).first();
             return nonNull(product) ? product : null;
     }
@@ -49,19 +49,19 @@ public class ProductRepository {
     }
 
     public Product save(Product product) {
-        log.info("Saving product on mongodb [{}]", product.getName());
+        log.info("Saving product on mongodb / name:[{}]", product.getName());
         final InsertOneResult insertOneResult = getCollection().insertOne(product);
         return get(insertOneResult.getInsertedId().asObjectId().getValue());
     }
 
     public Product update(ObjectId id,Product product) {
-        log.info("Update existent product on mongodb[{}]", product.getName());
+        log.info("Updating product on mongodb / id:[{}] name:[{}]",id.toString(), product.getName());
         getCollection().updateOne(new Document("_id", id), new Document("$set", product));
         return get(id);
     }
 
     public void delete(ObjectId id){
-        log.info("Removing product on mongodb[{}]", id);
+        log.info("Removing product from mongodb / id:[{}]", id);
         getCollection().deleteOne(getBsonFilterById(id));
     }
 

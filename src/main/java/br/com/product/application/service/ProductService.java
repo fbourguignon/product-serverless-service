@@ -28,8 +28,8 @@ public class ProductService implements ProductDomainService {
             log.info("Saving product: [{}]", product.getName());
             return repository.save(product);
         }catch (Exception e){
-            log.error("An error has ocurred on persist product [{}]", e.getMessage());
-            throw new ProductServiceGenericException("An error has ocurred on retrieve product");
+            log.error("There was an error saving product / exception: [{}]", e.getMessage());
+            throw new ProductServiceGenericException("There was an error saving product");
         }
     }
 
@@ -39,8 +39,8 @@ public class ProductService implements ProductDomainService {
             log.info("Retrieving product: [{}]", id);
             return repository.get(new ObjectId(id));
         }catch (Exception e){
-            log.error("An error has ocurred on retrieve product [{}]", e.getMessage());
-            throw new ProductServiceGenericException("An error has ocurred on retrieve product");
+            log.error("There was an error listing the products / exception: [{}]", e.getMessage());
+            throw new ProductServiceGenericException("There was an error listing the products");
         }
     }
 
@@ -50,8 +50,8 @@ public class ProductService implements ProductDomainService {
             log.info("Updating product: [{}]", id);
             return repository.update(new ObjectId(id), product);
         }catch (Exception e){
-            log.error("An error has ocurred on update product [{}]", e.getMessage());
-            throw new ProductServiceGenericException("An error has ocurred on update product");
+            log.error("There was an error updating the product / exception: [{}]", e.getMessage());
+            throw new ProductServiceGenericException("There was an error updating product");
         }
     }
 
@@ -61,8 +61,8 @@ public class ProductService implements ProductDomainService {
             log.info("Listing products");
             return repository.list();
         }catch (Exception e){
-            log.error("An error has ocurred on list products [{}]", e.getMessage());
-            throw new ProductServiceGenericException("An error has ocurred on list products");
+            log.error("There was an error listing the product / exception: [{}]", e.getMessage());
+            throw new ProductServiceGenericException("There was an error listing product");
         }
     }
 
@@ -72,8 +72,8 @@ public class ProductService implements ProductDomainService {
             log.info("Removing product: [{}]", id);
             repository.delete(new ObjectId(id));
         }catch (Exception e){
-            log.error("An error has ocurred on remove product [{}]", e.getMessage());
-            throw new ProductServiceGenericException("An error has ocurred on remove product");
+            log.error("There was an error removing the product / exception: [{}]", e.getMessage());
+            throw new ProductServiceGenericException("There was an error removing product");
         }
     }
 }
