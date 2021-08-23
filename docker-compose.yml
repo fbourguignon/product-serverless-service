@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+
+  mongodb:
+    image: "mongo"
+    container_name: "products-db"
+    ports:
+      - "27018:27017"
+    networks:
+      - product_serveless_service_network
+
+networks:
+  product_serveless_service_network:
+    name: product_serveless_service_network
