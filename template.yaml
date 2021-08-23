@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  product-service-serverless
+
+  Sample SAM Template for product-serverless-service
+
+Globals:
+  Function:
+    Timeout: 20
+
+Resources:
+  ProductServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: io.micronaut.function.aws.proxy.MicronautLambdaHandler::handleRequest
+      Runtime: java11
+      MemorySize: 512
+      Events:
+        ProxyProductApi:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+
+Outputs:
+  ProductService:
+    Description: "API Gateway endpoint URL for Prod stage product service"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/products/"
+  ProductServiceFunction:
+    Description: "Product Service Lambda Function ARN"
+    Value: !GetAtt ProductServiceFunction.Arn
+  ProductServiceFunctionIamRole:
+    Description: "Implicit IAM Role created for product Service function"
+    Value: !GetAtt ProductServiceFunctionIamRole.Arn
