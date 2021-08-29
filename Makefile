@@ -8,6 +8,8 @@ docker-down:
 	docker-compose down
 
 run:
+	@make docker-up
+	@make build
 	 sam local start-api --docker-network product_serveless_service_network
 
 debug:
