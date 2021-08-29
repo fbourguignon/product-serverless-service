@@ -16,7 +16,7 @@ make run
 ### Endpoints
 
 Create Product
-```console
+```bash
 POST /products HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
@@ -32,7 +32,7 @@ Postman-Token: 9b71b5ab-4160-c9fe-1aac-d573a19e36cb
 ```
 
 Retrieve Product
-```console
+```bash
 GET /products/{productId} HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
@@ -41,7 +41,7 @@ Postman-Token: 4846ef21-98f8-2c1b-f28b-403122bdb19f
 ```
 
 Update Product
-```console
+```bash
 PUT /products/{productId} HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
@@ -54,7 +54,7 @@ Postman-Token: f30c5305-dec8-e988-2669-771ff00d6048
 ```
 
 Delete Product
-```console
+```bash
 DELETE /products/{productId} HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
@@ -63,7 +63,7 @@ Postman-Token: 4aff8a8a-b618-7789-6833-5f744c0de578
 ```
 
 List Products
-```console
+```bash
 GET /products HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
