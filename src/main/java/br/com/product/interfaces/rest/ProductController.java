@@ -31,7 +31,7 @@ public class ProductController {
                 .stream()
                 .map(mapper::toResponse)
                 .collect(Collectors.toList());
-        return HttpResponse.created(response);
+        return HttpResponse.ok(response);
     }
 
     @Post
