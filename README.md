@@ -1,73 +1,82 @@
 # product-serverless-service
-Sample serverless application using Micronaut and AWS Lambda
+Sample serverless application using Micronaut, AWS Lambda and API Gateway
 
 - [x] [Micronaut 2.5.11](https://micronaut.io/)
 - [x] [SAM](https://aws.amazon.com/pt/serverless/sam/) 
 - [x] MongoDB
 - [x] TestContainers
+- [x] Java 11
 
 
 ### Start Application
-
+This command start the docker containers, build the application and start sam local api.
 ```console
 make run
 ```
+
+### Debug Application
+
+1 - configure intellij remote debugging.
+
+![picture](img/intelijj-debug.png)
+
+2 - run make debug
+```console
+make debug
+```
+3 - send any request to product controller
+
+4 - start debug
 
 ### Endpoints
 
 Create Product
 ```bash
-POST /products HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Cache-Control: no-cache
-Postman-Token: 9b71b5ab-4160-c9fe-1aac-d573a19e36cb
-
-{
+curl -X POST \
+  http://localhost:3000/products \
+  -H 'content-type: application/json' \
+  -d '{
     "name":"Playstation 5",
     "price":"4500.00",
-    "description":"new generation console from sony",
+    "description":"new sony console",
     "category":"console"
-}
+}'
 ```
 
 Retrieve Product
 ```bash
-GET /products/{productId} HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Cache-Control: no-cache
-Postman-Token: 4846ef21-98f8-2c1b-f28b-403122bdb19f
+curl -X GET \
+  http://localhost:3000/products/{productId} \
+  -H 'content-type: application/json' \
+  -d '{
+    "name":"Playstation 5",
+    "price":"4500.00",
+    "description":"new sony console",
+    "category":"console"
+}'
 ```
 
 Update Product
 ```bash
-PUT /products/{productId} HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Cache-Control: no-cache
-Postman-Token: f30c5305-dec8-e988-2669-771ff00d6048
-
-{
-    "price":"4000.00"
-}
+curl -X PUT \
+  http://localhost:3000/products/{productId} \
+  -H 'content-type: application/json' \
+  -d '{
+  "price":"{productValue}"
+}'
 ```
 
 Delete Product
 ```bash
-DELETE /products/{productId} HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Cache-Control: no-cache
-Postman-Token: 4aff8a8a-b618-7789-6833-5f744c0de578
+curl --request DELETE \
+  --url http://localhost:3000/products/{productId} \
+  --header 'content-type: application/json' 
 ```
 
 List Products
 ```bash
-GET /products HTTP/1.1
-Host: localhost:3000
-Content-Type: application/json
-Cache-Control: no-cache
-Postman-Token: 247a12dc-8407-e5d5-253d-65273cd94eea
+curl --request GET \
+  --url http://localhost:3000/products \
+  --header 'content-type: application/json' 
 ```
 
