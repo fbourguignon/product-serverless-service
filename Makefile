@@ -9,11 +9,12 @@ docker-down:
 
 run:
 	@make docker-up
-	@make build
-	 sam local start-api --docker-network product_serveless_service_network
+	 sam build
+	 sam local start-api --docker-network product_serveless_service_network --warm-containers EAGER
 
 debug:
-	sam local start-api --docker-network product_serveless_service_network --debug-port 5000
+	@make docker-up
+	 sam build
+	 sam local start-api --docker-network product_serveless_service_network --warm-containers EAGER --debug-port 5000
 
-build:
-	sam build
+
