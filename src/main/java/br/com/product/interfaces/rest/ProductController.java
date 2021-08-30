@@ -49,6 +49,7 @@ public class ProductController {
 
     @Delete("/{id}")
     public HttpResponse delete(@PathVariable String id){
+        service.delete(id);
         return HttpResponse.noContent();
     }
 
