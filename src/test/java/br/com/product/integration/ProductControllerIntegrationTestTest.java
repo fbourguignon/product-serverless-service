@@ -10,20 +10,23 @@ import io.micronaut.http.HttpHeaders;
 import io.micronaut.http.HttpMethod;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.MediaType;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ProductControllerIntegrationTestTest extends IntegrationControllerTest {
 
     private String productId;
     private final String PRODUCT_NAME = "Playstation 5";
     private final Double PRODUCT_OLD_PRICE = 4500.00;
-    private final Double PRODUCT_NEW_PRICE = 4500.00;
+    private final Double PRODUCT_NEW_PRICE = 4000.00;
     private final String PRODUCT_DESCRIPTION = "New sony console";
     private final String PRODUCT_CATEGORY = "Consoles";
 
