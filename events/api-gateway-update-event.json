@@ -1,0 +1,11 @@
+{
+  "body": "{\n   \"price\":\"4200.00\" \n}",
+  "resource": "/products/612ed4ecd6e7045c4a617897",
+  "path": "/products/612ed4ecd6e7045c4a617897",
+  "httpMethod": "PUT",
+  "isBase64Encoded": false,
+  "queryStringParameters": {},
+  "multiValueQueryStringParameters": {},
+  "pathParameters": {},
+  "stageVariables": {}
+}

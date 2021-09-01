@@ -1,0 +1,11 @@
+{
+  "body": "",
+  "resource": "/products",
+  "path": "/products",
+  "httpMethod": "GET",
+  "isBase64Encoded": false,
+  "queryStringParameters": {},
+  "multiValueQueryStringParameters": {},
+  "pathParameters": {},
+  "stageVariables": {}
+}

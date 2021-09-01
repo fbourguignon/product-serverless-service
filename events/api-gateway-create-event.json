@@ -1,0 +1,11 @@
+{
+  "body": "{\n    \"name\":\"Playstation 5\",\n    \"price\":\"4500.00\",\n    \"description\":\"new sony console\",\n    \"category\":\"console\"\n}",
+  "resource": "/products",
+  "path": "/products",
+  "httpMethod": "POST",
+  "isBase64Encoded": false,
+  "queryStringParameters": {},
+  "multiValueQueryStringParameters": {},
+  "pathParameters": {},
+  "stageVariables": {}
+}

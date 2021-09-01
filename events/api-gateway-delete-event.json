@@ -1,0 +1,11 @@
+{
+  "body": null,
+  "resource": "/products/612ed3f2d6e7045c4a617896",
+  "path": "/products/612ed3f2d6e7045c4a617896",
+  "httpMethod": "DELETE",
+  "isBase64Encoded": false,
+  "queryStringParameters": {},
+  "multiValueQueryStringParameters": {},
+  "pathParameters": {},
+  "stageVariables": {}
+}
