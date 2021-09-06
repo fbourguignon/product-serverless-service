@@ -8,75 +8,57 @@ Sample serverless application using Micronaut, AWS Lambda and API Gateway
 - [x] Java 11
 
 
-### Start Application
-This command start the docker containers, build the application and start sam local api.
+### Endpoints
+
+![picture](img/swagger-product.png)
+
+### Build Application
 ```console
-make run
+product-serverless-service % ./gradlew build
+```
+
+### Start Application
+This command starts the docker containers, sam local api and build the project.
+```console
+product-serverless-service % make run
 ```
 
 ### Debug Application
 
-1 - configure intellij remote debugging.
-
+1 - Configure intellij remote debugging.
 ![picture](img/intelijj-debug.png)
 
-2 - run make debug
+2 - Execute this command
 ```console
-make debug
+product-serverless-service % make debug
 ```
-3 - send any request to product controller
+3 - Send request
 
 4 - start debug
 
-### Endpoints
+![picture](img/debug-application.png)
 
-Create Product
-```bash
-curl -X POST \
-  http://localhost:3000/products \
-  -H 'content-type: application/json' \
-  -d '{
-    "name":"Playstation 5",
-    "price":"4500.00",
-    "description":"new sony console",
-    "category":"console"
-}'
-```
 
-Retrieve Product
-```bash
-curl -X GET \
-  http://localhost:3000/products/{productId} \
-  -H 'content-type: application/json' \
-  -d '{
-    "name":"Playstation 5",
-    "price":"4500.00",
-    "description":"new sony console",
-    "category":"console"
-}'
-```
+### Create lambda function
 
-Update Product
-```bash
-curl -X PUT \
-  http://localhost:3000/products/{productId} \
-  -H 'content-type: application/json' \
-  -d '{
-  "price":"{productValue}"
-}'
-```
+1 - Create a lambda function in aws console using Java 11 Corretto runtime.
+![picture](img/create-function.png)
 
-Delete Product
-```bash
-curl --request DELETE \
-  --url http://localhost:3000/products/{productId} \
-  --header 'content-type: application/json' 
-```
+2 - Execute the gradle build and upload the jar located on build/libs path.
+![picture](img/upload-function.png)
 
-List Products
-```bash
-curl --request GET \
-  --url http://localhost:3000/products \
-  --header 'content-type: application/json' 
-```
+3 - Configure the function handler using MicronautLambdaHandler.
+![picture](img/configure-handler.png)
+
+4 - Add an environment variable with the mongodb url.
+In this project I used mongodb atlas. Like amazon, they offer a free tier database.
+![picture](img/configure-enviroment-variable.png)
+
+5 - Finally, you can send a api gateway event to the function and see the result.
+![picture](img/sucess-result.png)
+![picture](img/test-lambda-console.png)
+![picture](img/mongo-db-compass.png)
+
+### Configure api gateway
+
 
