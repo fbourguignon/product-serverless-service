@@ -34,7 +34,7 @@ product-serverless-service % make debug
 ```
 3 - Send request
 
-4 - start debug
+4 - Start debug
 
 ![picture](img/debug-application.png)
 
@@ -51,7 +51,7 @@ product-serverless-service % make debug
 ![picture](img/configure-handler.png)
 
 4 - Add an environment variable with the mongodb url.
-In this project I used mongodb atlas. Like amazon, they offer a free tier database.
+In this project I used [mongodb atlas](https://www.mongodb.com/cloud/atlas/lp/try2?utm_content=controlaterms&utm_source=google&utm_campaign=gs_americas_brazil_search_core_brand_atlas_desktop&utm_term=mongodb%20atlas&utm_medium=cpc_paid_search&utm_ad=e&utm_ad_campaign_id=12212624308&gclid=Cj0KCQjwm9yJBhDTARIsABKIcGb7tWpZ2K79iVRFJ0R24w2B83dPmq9qzovbQiphRB9O60u45tjlXDQaApVYEALw_wcB). Like amazon, they offer a database in free tier.
 ![picture](img/configure-enviroment-variable.png)
 
 5 - Finally, you can send a api gateway event to the function and see the result.
@@ -59,6 +59,17 @@ In this project I used mongodb atlas. Like amazon, they offer a free tier databa
 ![picture](img/test-lambda-console.png)
 ![picture](img/mongo-db-compass.png)
 
-### Configure api gateway
+### Create api gateway
 
+1 - Create an api gateway of rest api type.
 
+2 - Map methods and resources like product controller.
+
+3 - For each method, select lambda function and enable lambda proxy integration.
+![picture](img/api-gateway-configure-method.png)
+
+4 - After that, you can test your functions.
+![picture](img/api-gateway-test.png)
+
+5 - At last, after deploy your api gateway, it will be avaliable to access.
+![picture](img/postman-request.png)
